@@ -7,8 +7,23 @@
     <title>My Website</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <style>
+        body {
+          background: #bad9b5;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   </head>
   <body>
+    <!--Navigation bar-->
+    <div id="nav-placeholder"></div>
+    
+    <script>
+    $(function(){
+      $("#nav-placeholder").load("navBar.html");
+    });
+    </script>
+    <!--end of Navigation bar-->
     <main>
         <div id="pastLessons" class="page"> past lessons 
             <h1 class="topText">Lessons From Previous Dates</h1>
