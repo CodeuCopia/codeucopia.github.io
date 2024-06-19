@@ -11,9 +11,12 @@
       body {
         background: rgb(222, 253, 255);
       }
-      #welcomeText {
-            position: absolute;
-        }
+      .topText {
+        position:absolute;
+      }
+      #welcomePara {
+        position:absolute;
+      }
     </style>
   </head>
   <body>
@@ -26,17 +29,17 @@
     <main>
       <!-- all pages -->
       <div id="home" class="page"> <!-- home page -->
-        <h1 id="welcomeText">Welcome to pAIthon</h1>
-        <p> Expanding code and tech literacy through python and AI.</p>
+        <h1 id="welcomeText" class="topText">Welcome to pAIthon</h1>
+        <p id="welcomePara"> Expanding code and tech literacy through python and AI.</p>
       </div>
       <div id="pastLessons" class="page"> <!-- past lessons -->
-        <h1>Lessons From Previous Dates</h1>
+        <h1 class="topText">Lessons From Previous Dates</h1>
       </div>
       <div id="projects" class="page"> <!-- past projects -->
-        <h1>Past Projects</h1>
+        <h1 class="topText">Past Projects</h1>
       </div>
       <div id="ourMembers" class="page"> <!-- our members -->
-        <h1>Our Members</h1>
+        <h1 class="topText">Our Members</h1>
       </div>
     </main>
 	<script src="index.js"></script>
