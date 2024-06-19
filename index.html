@@ -12,9 +12,18 @@
         background: #bad9b5;
       }
     </style>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   </head>
   <body>
-    <!-- navbar-->
+    <!--Navigation bar-->
+    <div id="nav-placeholder"></div>
+    
+    <script>
+    $(function(){
+      $("#nav-placeholder").load("nav.html");
+    });
+    </script>
+    <!--end of Navigation bar-->
     <main>
       <div id="home" class="page"> <!-- home page -->
         <h1 id="welcomeText" class="topText">Welcome to pAIthon</h1>
