@@ -10,13 +10,83 @@
     <style>
         body {
           background: #f3fffa;
+          font-family: 'Barlow';
         }
+        #our_members_title
+        {
+            text-align: center;
+            margin: 0;
+            line-height: 1.4;
+        }
+        .all_members{
+            display: flex;
+        }
+        .member_name_and_desc{
+            width: 33%;
+            margin-top: 20px;
+            text-align: center;
+            border: 3px solid green;
+            padding: 5px;
+        }
+        .ahana {
+            margin-left: 5px;
+            margin-right: 10px;
+        }
+        
+        .card
+        {
+            background-color: transparent;
+            perspective: 1000px;
+        }
+        
+        .linnrue
+        {
+            position: relative;
+              width: 87%;
+              height: 91%;
+              text-align: center;
+              transition: transform 0.6s;
+              transform-style: preserve-3d;
+              box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            margin-right: 10px;
+            flex-grow: 1;
+        }
+        
+        .card:hover .linnrue{
+          transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+
+        .card_front {
+            background-color: transparent;
+            color: black;
+        }
+        
+        .card_back {
+        background-color: #2980b9;
+          color: white;
+          transform: rotateY(180deg);
+        }
+        
+        .jonathan
+        {
+            margin-right: 5px;
+            flex-grow: 1;
+        }
+        
     </style>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   </head>
   <body>
     <!--Navigation bar-->
-    <div id="nav-placeholder"></div>
+    <div id="nav-placeholder">
     
     <script>
     $(function(){
@@ -24,11 +94,39 @@
     });
     </script>
     <!--end of Navigation bar-->
+    </div>
     <main>
       <div id="ourMembers" class="page">
-        <h1 class="topText">Our Members</h1>
+      
+        <h3 id = "our_members_title">Meet</h3>
+        <h1 class="topText" id = "our_members_title">Our Members</h1>
+        
+        <div class= "all_members">
+        
+        <div class="member_name_and_desc ahana">
+        <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
+        <h3  id="ahana_title">Ahana Gholkar<br><small><small>Co-founder</small></small></h3> </div>
+        
+        <div class="card">
+        <div class="member_name_and_desc linnrue">
+        <div class = "card_front">
+            <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
+            <h3  id="ahana_title">Linnrue Wei<br><small><small>Co-founder</small></small></h3>
+        </div>
+        <div class = "card_back">
+            <p>the most awesome person ever</p>
+        </div>
+        </div>
+        </div>
+        
+        <div class="member_name_and_desc jonathan">
+        <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
+        <h3  id="ahana_title"> Jonathan Alvarado<br><small><small>Co-founder</small></small></h3></div>
+        
+        </div>
+        
       </div>
     </main>
-	<script src="index.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>
