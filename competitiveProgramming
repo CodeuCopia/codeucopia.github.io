@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    
+    <style>
+    </style>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  </head>
+  <body>
+    <!--Navigation bar-->
+    <div id="nav-placeholder"></div>
+    
+    <script>
+    $(function(){
+      $("#nav-placeholder").load("navBar.html");
+    });
+    </script>
+    <!--end of Navigation bar-->
+    <main>
+      <div id="competitiveProgramming" class="page"> <!-- home page -->
+        <h1 id="welcomeText" class="topText">Competitive Programming</h1>
+        <p id="welcomePara"> Expanding code and tech literacy through python and AI.</p>
+      </div>
+    </main>
+	<script src="index.js"></script>
+  <script async type="module" src="https://embed.styledcalendar.com/assets/parent-window.js"></script>
+  </body>
+</html>
