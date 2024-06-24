@@ -36,21 +36,21 @@
             background-color: transparent;
             perspective: 1000px;
         }
-        
-        .linnrue
+
+        .card_inner
         {
-            position: relative;
-              width: 87%;
-              height: 91%;
-              text-align: center;
-              transition: transform 0.6s;
-              transform-style: preserve-3d;
-              box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-            margin-right: 10px;
-            flex-grow: 1;
+          position: relative;
+          width: 87%;
+          height: 91%;
+          text-align: center;
+          transition: transform 0.6s;
+          transform-style: preserve-3d;
+          box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+          margin-right: 10px;
+          flex-grow: 1;
         }
         
-        .card:hover .linnrue{
+        .card:hover .card_inner{
           transform: rotateY(180deg);
         }
 
@@ -75,8 +75,8 @@
         
         .jonathan
         {
-            margin-right: 5px;
-            flex-grow: 1;
+          margin-right: 5px;
+          flex-grow: 1;
         }
         
     </style>
@@ -101,12 +101,20 @@
         
         <div class= "all_members">
         
-        <div class="member_name_and_desc ahana">
-        <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
-        <h3  id="ahana_title">Ahana Gholkar<br><small><small>Co-founder</small></small></h3> </div>
-        
         <div class="card">
-        <div class="member_name_and_desc linnrue">
+        <div class="member_name_and_desc ahana card_inner">
+        <div class = "card_front">
+        <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
+        <h3  id="ahana_title">Ahana Gholkar<br><small><small>Co-founder</small></small></h3> 
+        </div>
+        <div class = "card_back">
+          <p>the most awesome person ever</p>
+        </div>
+        </div>
+        </div>
+
+        <div class="card">
+        <div class="member_name_and_desc linnrue card_inner">
         <div class = "card_front">
             <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
             <h3  id="ahana_title">Linnrue Wei<br><small><small>Co-founder</small></small></h3>
@@ -117,10 +125,18 @@
         </div>
         </div>
         
-        <div class="member_name_and_desc jonathan">
+        <div class="card">
+        <div class="member_name_and_desc jonathan card_inner">
+        <div class = "card_front">
         <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
-        <h3  id="ahana_title"> Jonathan Alvarado<br><small><small>Co-founder</small></small></h3></div>
-        
+        <h3  id="ahana_title"> Jonathan Alvarado<br><small><small>Co-founder</small></small></h3>
+        </div>
+        <div class = "card_back">
+          <p>the most awesome person ever</p>
+        </div>
+        </div>
+        </div>
+
         </div>
         
       </div>
