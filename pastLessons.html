@@ -9,30 +9,35 @@
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
     <style>
       .bar {
-           width: 28%;
+           width: 50%;
            height: 80px;
            background-color: #eff7cf;
+           border-radius: 10px;
+           margin: auto;
+           
+           
        }
 
-       ul {
+       .bar ul {
            margin-left: 0;
            padding: 0;
            list-style: none;
            display: flex;
            align-items: center;
            height: 100%;
+           
        }
 
-       ul li {
+       .bar ul li {
            display: inline-block;
-           line-height: 200px;
+           line-height: 100px;
            text-decoration: none;
-           font-size: 18px;
-           color: #1e1e1e;
+           font-size: 15px;
+           color:  #1e1e1e;
            padding: 0 20px;
        }
 
-       ul li:hover {
+       .bar ul li:hover {
            color: rgb(98, 138, 28);
        }
 
@@ -54,12 +59,14 @@
         <div id="pastLessons" class="page">  
           <div style="text-align: center;">
             <h1 style="margin-top: 5px" class="topText">Past Lessons</h1>
-            <p style="margin-top: 8px"> Below you'll find lessons we've taught in highschools and middleschools </p>
+            <p style="margin-top: 8px; margin-bottom: 30px"> Below you'll find lessons we've taught in highschools and middleschools </p>
           </div>
-          <ul class="bar">
+        <nav class = "bar">
+          <ul>
             <li>Highschool Lessons</li>
             <li>Middleschool Lessons</li>
-        </ul>
+          </ul>
+        </nav>
         </div>
     </main>
 	<script src="index.js"></script>
