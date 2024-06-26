@@ -9,128 +9,121 @@
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
     <link href='https://fonts.googleapis.com/css?family=Barlow' rel='stylesheet'>
     <style>
-        
-        #our_members_title
-        {
+        body {
+            font-family: 'Barlow', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #our_members_title {
             text-align: center;
             margin: 0;
             line-height: 1.4;
         }
-        .all_members{
+        .all_members {
             display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
         }
-        .member_name_and_desc{
-            width: 33%;
-            margin-top: 20px;
-            text-align: center;
-            border: 3px solid green;
-            padding: 5px;
-        }
-        .card
-        {
+        .card {
+            position: relative;
+            width: 300px;
+            height: 250px; 
             background-color: transparent;
             perspective: 1000px;
+            border: 3px solid green;
+            box-sizing: border-box;
         }
-
-        .card_inner
-        {
-          position: relative;
-          width: 90%;
-          height: 100%;
-          text-align: center;
-          transition: transform 0.6s;
-          transform-style: preserve-3d;
-          box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-          margin-left: 50px;
-          margin-right: 50px;
-          flex-grow: 1;
+        .card_inner {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
         }
-        
-        .card:hover .card_inner{
-          transform: rotateY(180deg);
+        .card:hover .card_inner {
+            transform: rotateY(180deg);
         }
-
-        .flip-card-front, .flip-card-back {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+        .card_front, .card_back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
         }
-
         .card_front {
             background-color: #f3fffa;
             color: black;
         }
-        
         .card_back {
-        background-color: #f3fffa;
-          color: black;
-          transform: rotateY(180deg);
+            background-color: #f3fffa;
+            color: black;
+            transform: rotateY(180deg);
         }
-        
     </style>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   </head>
   <body>
     <!--Navigation bar-->
-    <div id="nav-placeholder">
-    
+    <div id="nav-placeholder"></div>
     <script>
-    $(function(){
-      $("#nav-placeholder").load("navBar.html");
-    });
+        $(function() {
+            $("#nav-placeholder").load("navBar.html");
+        });
     </script>
     <!--end of Navigation bar-->
-    </div>
     <main>
       <div id="ourMembers" class="page">
-      
-        <h3 id = "our_members_title">Meet</h3>
-        <h1 class="topText" id = "our_members_title">Our Members</h1>
-        
-        <div class= "all_members">
-        
-        <div class="card">
-        <div class="member_name_and_desc ahana card_inner">
-        <div class = "card_front">
-        <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
-        <h3  id="ahana_title">Ahana Gholkar<br><small><small>Co-founder</small></small></h3> 
-        </div>
-        <div class = "card_back">
-          <p>the most awesome person ever</p>
-        </div>
-        </div>
-        </div>
-
-        <div class="card">
-        <div class="member_name_and_desc linnrue card_inner">
-        <div class = "card_front">
-            <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
-            <h3  id="ahana_title">Linnrue Wei<br><small><small>Co-founder</small></small></h3>
-        </div>
-        <div class = "card_back">
-            <p>the most awesome person ever</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-        <div class="member_name_and_desc jonathan card_inner">
-        <div class = "card_front">
-        <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
-        <h3  id="ahana_title"> Jonathan Alvarado<br><small><small>Co-founder</small></small></h3>
-        </div>
-        <div class = "card_back">
-          <p>the most awesome person ever</p>
-        </div>
-        </div>
-        </div>
-
-        </div>
-        
+          <div style="text-align: center;">
+              <h3 id="our_members_title">Meet</h3>
+              <h1 class="topText" id="our_members_subtitle">Our Members</h1>
+          </div>
+          <div class="all_members">
+              <div class="card">
+                  <div class="card_inner">
+                      <div class="card_front">
+                          <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
+                          <h3 id="ahana_title">Ahana Gholkar<br><small><small>Co-founder</small></small></h3>
+                      </div>
+                      <div class="card_back">
+                        <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
+                          <p>the most awesome person ever</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="card">
+                  <div class="card_inner">
+                      <div class="card_front">
+                          <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
+                          <h3 id="linnrue_title">Linnrue Wei<br><small><small>Co-founder</small></small></h3>
+                      </div>
+                      <div class="card_back">
+                        <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
+                          <p>the most awesome person ever</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="card">
+                  <div class="card_inner">
+                      <div class="card_front">
+                          <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
+                          <h3 id="jonathan_title">Jonathan Alvarado<br><small><small>Co-founder</small></small></h3>
+                      </div>
+                      <div class="card_back">
+                        <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
+                          <p>the most awesome person ever</p>
+                      </div>
+                  </div>
+              </div>
+              
+          </div>
       </div>
-    </main>
-    <script src="index.js"></script>
-  </body>
+  </main>
+  <script src="index.js"></script>
+</body>
 </html>
+
+  
