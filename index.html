@@ -7,8 +7,73 @@
     <title>My Website</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
-    
+    <link href='https://fonts.googleapis.com/css?family=Barlow' rel='stylesheet'>
     <style>
+      body {
+        font-family: 'Barlow', sans-serif;
+      }
+      .slideshow-container {
+        width: 100%;
+        height: 350px;
+        margin: 20px auto;
+        position: relative;
+        overflow: hidden;
+      }
+      .slide {
+        display: none;
+        position: relative;
+      }
+      .slide img {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        opacity: 0.7;
+      }
+      .slide-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        font-size: 24px;
+        text-align: center;
+        padding: 20px;
+        background: transparent;
+        border-radius: 5px;
+        max-width: 80%;
+        white-space: pre-wrap;
+      }
+      .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+      }
+      .prev {
+        left: 0;
+        border-radius: 3px 0 0 3px;
+      }
+      .prev:hover, .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+      .styled-calendar-container {
+        width: 60%;
+        margin: 40px auto;
+        border: none;
+      }
     </style>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   </head>
@@ -24,12 +89,55 @@
     <!--end of Navigation bar-->
     <main>
       <div id="home" class="page"> <!-- home page -->
-        <h1 id="welcomeText" class="topText">Welcome to pAIthon</h1>
-        <p id="welcomePara"> Expanding code and tech literacy through python and AI.</p>
-        <iframe src="https://embed.styledcalendar.com/#UBgxGXZ9dWmeSxNsrpKH" title="Styled Calendar" class="styled-calendar-container" style="width: 100%; border: none;" data-cy="calendar-embed-iframe"></iframe>
+       
+        <!-- Slideshow -->
+        <div class="slideshow-container">
+          <div class="slide">
+            <img src="https://st4.depositphotos.com/5697382/21041/i/450/depositphotos_210411336-stock-photo-minimal-work-space-creative-flat.jpg" alt="Welcome to pAIthon">
+            <div class="slide-text">Welcome to pAIthon!
+              Expanding code and tech literarcy through python and AI</div>
+        
+          </div>
+          <div class="slide">
+            <img src="logo_pAIthon.png" alt="About Us">
+            <div class="slide-text">About Us</div>
+          </div>
+          <div class="slide">
+            <img src="logo_pAIthon.png" alt="Our Impact">
+            <div class="slide-text">Our Impact</div>
+          </div>
+          <div class="slide">
+            <img src="logo_pAIthon.png" alt="How You Can Help">
+            <div class="slide-text">How You Can Help</div>
+          </div>
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        
+        <!-- Embedded Calendar -->
+        <iframe src="https://embed.styledcalendar.com/#UBgxGXZ9dWmeSxNsrpKH" title="Styled Calendar" class="styled-calendar-container" data-cy="calendar-embed-iframe"></iframe>
       </div>
     </main>
-	<script src="index.js"></script>
-  <script async type="module" src="https://embed.styledcalendar.com/assets/parent-window.js"></script>
+    <script src="index.js"></script>
+    <script async type="module" src="https://embed.styledcalendar.com/assets/parent-window.js"></script>
+    <script>
+      let slideIndex = 1;
+      showSlides(slideIndex);
+
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+
+      function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("slide");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";  
+        }
+        slides[slideIndex-1].style.display = "block";  
+      }
+    </script>
   </body>
 </html>
