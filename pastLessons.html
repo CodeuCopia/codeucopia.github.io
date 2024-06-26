@@ -8,6 +8,34 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
     <style>
+      .bar {
+           width: 28%;
+           height: 80px;
+           background-color: #eff7cf;
+       }
+
+       ul {
+           margin-left: 0;
+           padding: 0;
+           list-style: none;
+           display: flex;
+           align-items: center;
+           height: 100%;
+       }
+
+       ul li {
+           display: inline-block;
+           line-height: 200px;
+           text-decoration: none;
+           font-size: 18px;
+           color: #1e1e1e;
+           padding: 0 20px;
+       }
+
+       ul li:hover {
+           color: rgb(98, 138, 28);
+       }
+
     </style>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   </head>
@@ -20,11 +48,19 @@
       $("#nav-placeholder").load("navBar.html");
     });
     </script>
+
     <!--end of Navigation bar-->
     <main>
         <div id="pastLessons" class="page">  
-            <h1 class="topText">Past Lessons</h1>
+          <div style="text-align: center;">
+            <h1 style="margin-top: 5px" class="topText">Past Lessons</h1>
+            <p style="margin-top: 8px"> Below you'll find lessons we've taught in highschools and middleschools </p>
           </div>
+          <ul class="bar">
+            <li>Highschool Lessons</li>
+            <li>Middleschool Lessons</li>
+        </ul>
+        </div>
     </main>
 	<script src="index.js"></script>
   </body>
