@@ -7,8 +7,53 @@
     <title>My Website</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Barlow' rel='stylesheet'>
     <style>
-      .bar {
+        .filters {
+          display: flex;
+          justify-content: flex-start;
+          margin-bottom: 20px;
+          font-family: 'Barlow', sans-serif;
+          width: 90%;
+          height: 50px;
+          background-color: #ebf2cc;
+          border-radius: 10px;
+          margin-left: 5%;
+          margin-top: 20px; 
+        }
+
+        .filters select {
+          position: relative;
+          margin-top: 10px;
+          margin-right: 2%;
+          background:#f8fce5;
+          border: 0.2px solid rgb(119, 164, 119);
+          padding-left: 18px;
+          border-radius: 10px;
+          width: 17%;
+          height: 30px;
+          font-size: 15px;
+          color: rgb(119, 164, 119);
+        }
+
+       .search input[type=text] {
+          width: 20%;
+          height: 30px;
+          border-radius: 10px;
+          position: absolute;
+          margin-top: 5px;
+          border: 0.2px solid rgb(119, 164, 119);
+          border-radius: 10px;
+          background: #f8fce5;
+          color: rgb(119, 164, 119);
+          font-size: 15px;
+          padding: 18px 15px;
+        }
+        ::placeholder {
+          color:  rgb(119, 164, 119);
+        }
+
+        .bar {
            width: 50%;
            height: 80px;
            background-color: #eff7cf;
@@ -36,6 +81,7 @@
        .bar ul li:hover {
            color: rgb(98, 138, 28);
        }
+
        .all_members {
             display: flex;
             justify-content: center;
@@ -76,34 +122,6 @@
             backface-visibility: hidden;
             background-color: #f3fffa;
             color: black;
-        }
-        .search {
-           width: 50%;
-           height: 50px;
-           background-color: #ebf2cc;
-           border-radius: 10px;
-           margin-left: auto;  
-           margin-right: auto; 
-           margin-top: 20px; 
-       }
-       #search_box{
-           width: 49%;
-           height: 30px;
-           border-radius: 10px;
-           position: absolute;
-           margin-top: 5px;
-           margin-left: 5px;
-       }
-       .search input[type=text] {
-          border: 0.2px solid rgb(119, 164, 119);
-          border-radius: 10px;
-          background: #f8fce5;
-          color: rgb(119, 164, 119);
-          font-size: 15px;
-          padding: 18px 15px;
-        }
-        ::placeholder {
-          color:  rgb(119, 164, 119);
         }
 
 
@@ -177,34 +195,38 @@
           <div style="text-align: center;">
             <h1 id = "archive" style="margin-top: 5px; margin-bottom: 20px">Archive</h1>
           </div>
-          <nav class = "bar">
-            <ul>
-              <li>Highschool Lessons</li>
-              <li>Middleschool Lessons</li>
-              <li>2023-2024</li>
-              <li>2024-2025</li>
-            </ul>
-          </nav>
-          <div class = "search">
-              <input id="search_box" style="font-size: 15px;" type="text" placeholder="Search..">
-          </div>
-          <div>
 
-          <div style="margin-top: 20px" class="all_members">
-            <div class="card">
-              <div class="card_inner">
-                <div class="card_front">
-                  <h3 id="ahana_title">Ahana Gholkar<br><small><small>Co-founder</small></small></h3>
-                </div>
-                <div class="card_back">
-                  <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
-                    <p>the most awesome person ever</p>
-                </div>
+            <div class="filters">
+
+              <select style="margin-left: 10px"id="yearDropdown" onchange="filterLessons()">
+                <option value="">Years</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+              </select>
+              
+              <select id="locationDropdown" onchange="filterLessons()">
+                <option value="">Locations</option>
+                <option value="Armstrong">Armstrong</option>
+                <option value="Payton">Payton</option>
+              </select>
+
+              <select id="gradeDropdown" onchange="filterLessons()">
+                <option value="">Grade Levels</option>
+                <option value="Highschool">Highschool</option>
+                <option value="Middleschool">Middleschool</option>
+              </select>
+
+              <select id="contentDropdown" onchange="filterLessons()">
+                <option value="">Content</option>
+                <option value="Python">Python</option>
+                <option value="AI">AI</option>
+              </select>
+
+              <div class = "search">
+                <input id="search_box" style="font-size: 15px;" type="text" placeholder="Search lessons..." onkeyup="filterLessons()">
               </div>
-            </div>
-          </div>
 
-          </div>
+            </div>
       </div>
     </main>
 	<script src="index.js"></script>
