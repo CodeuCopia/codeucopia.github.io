@@ -22,7 +22,6 @@
            display: flex;
            align-items: center;
            height: 100%;
-           
        }
 
        .bar ul li {
@@ -37,7 +36,7 @@
        .bar ul li:hover {
            color: rgb(98, 138, 28);
        }
-       .all_lessons {
+       .all_members {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
@@ -46,7 +45,7 @@
         }
         .card {
             position: relative;
-            width: 300px;
+            width: calc(100% - 10px);
             height: 250px; 
             background-color: transparent;
             perspective: 1000px;
@@ -58,37 +57,53 @@
             height: 100%;
             text-align: center;
             transition: transform 0.6s;
+            transform-style: preserve-3d;
             box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
         }
-        .card:hover .card_back {
-          transform: translateX(-100%);
-          width: 400%;
-          height: 125%;
-        }
-        .card:hover .card_front {
-          transform: translateY(12.5%);
-        }
-        .card:hover .card_inner {
-          transform: translateX(100%);
-          box-shadow: none;
-        }
-        .card_front, .card_back {
+        .card_front {
+            border: 3.5px solid green;
             position: absolute;
             width: 100%;
             height: 100%;
             backface-visibility: hidden;
-        }
-        .card_front {
-            border: 3.5px solid green;
             background-color: #f3fffa;
             color: black;
         }
         .card_back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
             background-color: #f3fffa;
             color: black;
-            transform: translateX(0%);
-            transform: rotateY(180deg);
         }
+        .search {
+           width: 50%;
+           height: 50px;
+           background-color: #ebf2cc;
+           border-radius: 10px;
+           margin-left: auto;  
+           margin-right: auto; 
+           margin-top: 30px; 
+       }
+       #search_box{
+           width: 49%;
+           height: 30px;
+           background-color:#f8fce5;
+           border: 0.2px solid rgb(119, 164, 119);
+           border-radius: 10px;
+           position: absolute;
+           margin-top: 10px;
+           margin-left: 0.5%;
+       }
+       .search input[type=text] {
+          float: left;
+          border: none;
+          background-color: none;
+          color: #fff;
+          font-size: 15px;
+        }
+
 
     </style>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -107,66 +122,76 @@
     <main>
         <div id="pastLessons" class="page">  
           <div style="text-align: center;">
-            <h1 style="margin-top: 5px" class="topText">Past Lessons</h1>
+            <h1 style="margin-top: 30px" class="topText">Past Lessons</h1>
             <p style="margin-top: 8px; margin-bottom: 30px"> Below you'll find lessons we've taught in highschools and middleschools </p>
+          </div>
+          <nav class = "bar">
+            <ul>
+              <li>Featured Lessons 2024</li>
+              <li><a href="#archive">Archive</a></li>
+            </ul>
+          </nav>
+
+          <div style="margin-top: 20px" class="all_members">
+            <div class="card">
+                <div class="card_inner">
+                    <div class="card_front">
+                        <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
+                        <h3 id="ahana_title">Ahana Gholkar<br><small><small>Co-founder</small></small></h3>
+                    </div>
+                    <div class="card_back">
+                      <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
+                        <p>the most awesome person ever</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card_inner">
+                    <div class="card_front">
+                        <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
+                        <h3 id="linnrue_title">Linnrue Wei<br><small><small>Co-founder</small></small></h3>
+                    </div>
+                    <div class="card_back">
+                      <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
+                        <p>the most awesome person ever</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card_inner">
+                    <div class="card_front">
+                        <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
+                        <h3 id="jonathan_title">Jonathan Alvarado<br><small><small>Co-founder</small></small></h3>
+                    </div>
+                    <div class="card_back">
+                      <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
+                        <p>the most awesome person ever</p>
+                    </div>
+                </div>
+            </div>
+            
+          </div>
+          
+          <div style="text-align: center;">
+            <h1 id = "archive" style="margin-top: 5px; margin-bottom: 20px">Archive</h1>
           </div>
           <nav class = "bar">
             <ul>
               <li>Highschool Lessons</li>
               <li>Middleschool Lessons</li>
+              <li>2023-2024</li>
+              <li>2024-2025</li>
             </ul>
           </nav>
-          <div class="all_lessons">
-            <div class="card">
-                <div class="card_inner">
-                    <div class="card_front">
-                        <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
-                        <h3 id="day_1">Introducing AI<br><small><small>01/12</small></small></h3>
-                    </div>
-                    <div class="card_back">
-                      <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
-                        <p>the most awesome person ever</p>
-                    </div>
-                </div>
+          <nav class = "search">
+            <div id="search_box">
+              <input style="font-size: 15px; margin-left: 5px; margin-top: 5px" type="text" placeholder="Search..">
             </div>
-            <div class="card">
-                <div class="card_inner">
-                    <div class="card_front">
-                        <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
-                        <h3 id="day_2">Introducing Python<br><small><small>01/19</small></small></h3>
-                    </div>
-                    <div class="card_back">
-                      <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
-                        <p>the most awesome person ever</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card_inner">
-                    <div class="card_front">
-                        <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
-                        <h3 id="day_3">Deeper Exploration of Python<br><small><small>01/26</small></small></h3>
-                    </div>
-                    <div class="card_back">
-                      <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
-                        <p>the most awesome person ever</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-              <div class="card_inner">
-                  <div class="card_front">
-                      <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
-                      <h3 id="day_4">Machine Learning Project<br><small><small>02/02</small></small></h3>
-                  </div>
-                  <div class="card_back">
-                    <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
-                      <p>the most awesome person ever</p>
-                  </div>
-              </div>
-            </div>   
+          </nav>
+          <div>
+
           </div>
-        </div>
+      </div>
     </main>
 	<script src="index.js"></script>
   </body>
