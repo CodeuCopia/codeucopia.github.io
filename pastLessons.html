@@ -124,6 +124,48 @@
             color: black;
         }
 
+        .lesson-list {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+          gap: 20px;
+        }
+
+        .lesson-card {
+          background-color: #fff;
+          border: 1px solid #ddd;
+          border-radius: 8px;
+          padding: 20px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+
+        .lesson-card h3 {
+          margin-top: 0;
+        }
+
+        .lesson-card .slideshow {
+          width: 100%;
+          height: 200px;
+          background-color: #eee;
+          margin: 20px 0;
+        }
+
+        .lesson-card .tags {
+          display: flex;
+          flex-wrap: wrap;
+        }
+
+        .lesson-card .tag {
+          background-color: #007bff;
+          color: #fff;
+          border-radius: 4px;
+          padding: 5px 10px;
+          margin-right: 5px;
+          margin-bottom: 5px;
+        }
+
 
     </style>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -199,25 +241,25 @@
             <div class="filters">
 
               <select style="margin-left: 10px"id="yearDropdown" onchange="filterLessons()">
-                <option value="">Years</option>
+                <option value="">All Years</option>
                 <option value="2023">2023</option>
                 <option value="2024">2024</option>
               </select>
               
               <select id="locationDropdown" onchange="filterLessons()">
-                <option value="">Locations</option>
+                <option value="">All Locations</option>
                 <option value="Armstrong">Armstrong</option>
                 <option value="Payton">Payton</option>
               </select>
 
               <select id="gradeDropdown" onchange="filterLessons()">
-                <option value="">Grade Levels</option>
+                <option value="">All Grade Levels</option>
                 <option value="Highschool">Highschool</option>
                 <option value="Middleschool">Middleschool</option>
               </select>
 
               <select id="contentDropdown" onchange="filterLessons()">
-                <option value="">Content</option>
+                <option value="">All Content</option>
                 <option value="Python">Python</option>
                 <option value="AI">AI</option>
               </select>
@@ -227,8 +269,63 @@
               </div>
 
             </div>
+
+            <div id="lessonList" class="lesson-list"></div>
       </div>
     </main>
 	<script src="index.js"></script>
+
+  <script>
+    const lessons = [
+      { title: 'Lesson 1', year: 2023, location: 'Armstrong', topic: 'Cryptography', slides: 'https://docs.google.com/presentation/d/1GXlArHm44BKBC8FGOUotYgbutaMkB8qZpzX7fFpfiCo/embed?start=false&loop=false&delayms=3000' },
+      { title: 'Lesson 2', year: 2024, location: 'London', topic: 'Science', slides: 'https://docs.google.com/presentation/d/1GXlArHm44BKBC8FGOUotYgbutaMkB8qZpzX7fFpfiCo/embed?start=false&loop=false&delayms=3000' },
+      
+      // Add more lesson objects as needed
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      displayLessons(lessons);
+    });
+
+    function filterLessons() {
+      const year = document.getElementById('yearDropdown').value;
+      const location = document.getElementById('locationDropdown').value;
+      const searchQuery = document.getElementById('search_box').value.toLowerCase();
+
+      const filteredLessons = lessons.filter(lesson => {
+        return (year === '' || lesson.year == year) &&
+               (location === '' || lesson.location == location) &&
+               (searchQuery === '' || 
+                lesson.title.toLowerCase().includes(searchQuery) || 
+                lesson.topic.toLowerCase().includes(searchQuery));
+      });
+
+      displayLessons(filteredLessons);
+    }
+
+    function displayLessons(lessons) {
+      const lessonList = document.getElementById('lessonList');
+      lessonList.innerHTML = '';
+
+      if (lessons.length === 0) {
+        lessonList.innerHTML = '<p>No lessons found.</p>';
+        return;
+      }
+
+      lessons.forEach(lesson => {
+        const lessonItem = document.createElement('div');
+        lessonItem.className = 'lesson-card';
+
+        lessonItem.innerHTML = `<h3>${lesson.topic}</h3>
+                                <iframe src="${lesson.slides}" frameborder="0" width="100%" height="200"></iframe>
+                                <div class="tags">
+                                  <span class="tag">${lesson.year}</span>
+                                  <span class="tag">${lesson.location}</span>
+                                </div>`;
+        lessonList.appendChild(lessonItem);
+      });
+    }
+  </script>
+
   </body>
 </html>
