@@ -84,24 +84,26 @@
            border-radius: 10px;
            margin-left: auto;  
            margin-right: auto; 
-           margin-top: 30px; 
+           margin-top: 20px; 
        }
        #search_box{
            width: 49%;
            height: 30px;
-           background-color:#f8fce5;
-           border: 0.2px solid rgb(119, 164, 119);
            border-radius: 10px;
            position: absolute;
-           margin-top: 10px;
-           margin-left: 0.5%;
+           margin-top: 5px;
+           margin-left: 5px;
        }
        .search input[type=text] {
-          float: left;
-          border: none;
-          background-color: none;
-          color: #fff;
+          border: 0.2px solid rgb(119, 164, 119);
+          border-radius: 10px;
+          background: #f8fce5;
+          color: rgb(119, 164, 119);
           font-size: 15px;
+          padding: 18px 15px;
+        }
+        ::placeholder {
+          color:  rgb(119, 164, 119);
         }
 
 
@@ -183,12 +185,24 @@
               <li>2024-2025</li>
             </ul>
           </nav>
-          <nav class = "search">
-            <div id="search_box">
-              <input style="font-size: 15px; margin-left: 5px; margin-top: 5px" type="text" placeholder="Search..">
-            </div>
-          </nav>
+          <div class = "search">
+              <input id="search_box" style="font-size: 15px;" type="text" placeholder="Search..">
+          </div>
           <div>
+
+          <div style="margin-top: 20px" class="all_members">
+            <div class="card">
+              <div class="card_inner">
+                <div class="card_front">
+                  <h3 id="ahana_title">Ahana Gholkar<br><small><small>Co-founder</small></small></h3>
+                </div>
+                <div class="card_back">
+                  <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
+                    <p>the most awesome person ever</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
           </div>
       </div>
