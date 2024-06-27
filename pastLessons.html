@@ -41,13 +41,14 @@
           height: 30px;
           border-radius: 10px;
           position: absolute;
-          margin-top: 5px;
+          margin-top: 7px;
           border: 0.2px solid rgb(119, 164, 119);
           border-radius: 10px;
           background: #f8fce5;
           color: rgb(119, 164, 119);
           font-size: 15px;
           padding: 18px 15px;
+          height: 30px;
         }
         ::placeholder {
           color:  rgb(119, 164, 119);
@@ -126,14 +127,16 @@
 
         .lesson-list {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
           gap: 20px;
         }
 
         .lesson-card {
+          height : 350px;
           background-color: #fff;
           border: 1px solid #ddd;
           border-radius: 8px;
+          margin-left: 20px;
           padding: 20px;
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
           display: flex;
@@ -143,13 +146,14 @@
 
         .lesson-card h3 {
           margin-top: 0;
+          margin-bottom: 10px;
         }
 
         .lesson-card .slideshow {
-          width: 100%;
-          height: 200px;
+          width: auto;
+          height: auto;
           background-color: #eee;
-          margin: 20px 0;
+          margin: 20px ;
         }
 
         .lesson-card .tags {
@@ -158,12 +162,13 @@
         }
 
         .lesson-card .tag {
-          background-color: #007bff;
+          background-color: #06da50;
           color: #fff;
           border-radius: 4px;
           padding: 5px 10px;
           margin-right: 5px;
-          margin-bottom: 5px;
+          margin-top: 10px;
+          
         }
 
 
@@ -255,13 +260,15 @@
               <select id="gradeDropdown" onchange="filterLessons()">
                 <option value="">All Grade Levels</option>
                 <option value="Highschool">Highschool</option>
-                <option value="Middleschool">Middleschool</option>
+                <option value="Middle School">Middle School</option>
               </select>
 
               <select id="contentDropdown" onchange="filterLessons()">
                 <option value="">All Content</option>
-                <option value="Python">Python</option>
-                <option value="AI">AI</option>
+                <option value="Coding">Coding</option>
+                <option value="Logic / Fun">Logic / Fun</option>
+                <option value="Hardware">Hardware</option>
+                <option value="Software">Software</option>
               </select>
 
               <div class = "search">
@@ -277,8 +284,8 @@
 
   <script>
     const lessons = [
-      { title: 'Lesson 1', year: 2023, location: 'Armstrong', topic: 'Cryptography', slides: 'https://docs.google.com/presentation/d/1GXlArHm44BKBC8FGOUotYgbutaMkB8qZpzX7fFpfiCo/embed?start=false&loop=false&delayms=3000' },
-      { title: 'Lesson 2', year: 2024, location: 'London', topic: 'Science', slides: 'https://docs.google.com/presentation/d/1GXlArHm44BKBC8FGOUotYgbutaMkB8qZpzX7fFpfiCo/embed?start=false&loop=false&delayms=3000' },
+      { title: 'Lesson 1', year: 2024, location: 'Armstrong', grade : 'Middle School', topic: 'Cryptography', content : 'Logic / Fun', slides: 'https://docs.google.com/presentation/d/1GXlArHm44BKBC8FGOUotYgbutaMkB8qZpzX7fFpfiCo/embed?start=false&loop=false&delayms=3000' },
+      { title: 'Lesson 2', year: 2024, location: 'Armstrong', grade: 'Middle School', topic: 'Logic And Algorithms',content : 'Logic / Fun', slides: 'https://docs.google.com/presentation/d/1deATvgoq-Ybr9gqWCzEjQS7H-lMo2pVEaETi6J23CnI/embed?start=false&loop=false&delayms=3000' },
       
       // Add more lesson objects as needed
     ];
@@ -299,7 +306,7 @@
                (location === '' || lesson.location == location) &&
                (searchQuery === '' || 
                 lesson.title.toLowerCase().includes(searchQuery) || 
-                lesson.topic.toLowerCase().includes(searchQuery));
+                lesson.topic.toLowerCase().includes(searchQuery)) && (grade === '' || lesson.grade == grade) && (content === '' || lesson.content == content);
       });
 
       displayLessons(filteredLessons);
@@ -321,8 +328,10 @@
         lessonItem.innerHTML = `<h3>${lesson.topic}</h3>
                                 <iframe src="${lesson.slides}" frameborder="0" width="100%" height="200"></iframe>
                                 <div class="tags">
+                                  <span class="tag">${lesson.grade}</span>
                                   <span class="tag">${lesson.year}</span>
                                   <span class="tag">${lesson.location}</span>
+                                  <span class="tag">${lesson.content}</span>
                                 </div>`;
         lessonList.appendChild(lessonItem);
       });
