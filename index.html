@@ -15,7 +15,7 @@
       .slideshow-container {
         width: 100%;
         height: 350px;
-        margin: 20px auto;
+        margin: auto;
         position: relative;
         overflow: hidden;
       }
@@ -31,15 +31,17 @@
       }
       .slide-text {
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: #fff;
+        text-align: center;
+        top: 150px;
+        left: 50px;
+        right:50px;
+        color: black;
+        font-weight: bolder;
         font-size: 24px;
         text-align: center;
         background: transparent;
         border-radius: 5px;
-        max-width: 80%;
+        max-width: 100%;
         white-space: pre-wrap;
       }
       .prev, .next {
@@ -55,7 +57,7 @@
         transition: 0.6s ease;
         border-radius: 0 3px 3px 0;
         user-select: none;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.25);
       }
       .next {
         right: 0;
@@ -70,8 +72,65 @@
       }
       .styled-calendar-container {
         width: 60%;
-        margin: 40px auto;
+        margin: 20px auto; /* Center horizontally and provide top margin */
+        display: block;
         border: none;
+      }
+      @media (max-width: 768px) {
+        .styled-calendar-container {
+          width: 90%; /* Adjust width for smaller screens */
+        }
+      }
+      /* Modal Styles */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+        padding-top: 60px;
+      }
+      .modal-content {
+        background-color: #effef6;
+        margin: 5% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 600px;
+        text-align: center;
+        font-family: 'Barlow', sans-serif;
+      }
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .contact-button {
+        padding: 10px 20px;
+        font-size: 24px;
+        cursor: pointer;
+        background-color: #00ab0e; /* Blue background */
+        color: white;
+        border: none;
+        border-radius: 25px; /* Rounded button */
+        font-family: 'Barlow', sans-serif;
+        font-weight: bold;
+        transition: background-color 0.3s;
+      }
+      .contact-button:hover {
+        background-color: #007347; /* Darker blue on hover */
       }
     </style>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -81,9 +140,9 @@
     <div id="nav-placeholder"></div>
     
     <script>
-    $(function(){
-      $("#nav-placeholder").load("navBar.html");
-    });
+      $(function(){
+        $("#nav-placeholder").load("navBar.html");
+      });
     </script>
     <!--end of Navigation bar-->
     <main>
@@ -92,26 +151,24 @@
         <!-- Slideshow -->
         <div class="slideshow-container">
           <div class="slide">
-            <img src="https://st4.depositphotos.com/5697382/21041/i/450/depositphotos_210411336-stock-photo-minimal-work-space-creative-flat.jpg" alt="Welcome to pAIthon">
-            <div class="slide-text">Welcome to pAIthon!
-              Expanding code and tech literarcy through python and AI
-            
-            
-            
+            <img src="images/DSC00081.jpg" alt="Welcome to pAIthon">
+            <div class="slide-text" style ="margin-top:auto;">Welcome to pAIthon!
+              Expanding code and tech literacy through python and AI
             </div>
-        
           </div>
           <div class="slide">
-            <img src="logo_pAIthon.png" alt="About Us">
+            <img src="images/IMG_20240411_151040543_HDR.webp" alt="About Us">
             <div class="slide-text">About Us</div>
           </div>
           <div class="slide">
-            <img src="logo_pAIthon.png" alt="Our Impact">
+            <img src="images/IMG_20240124_154804_MP.webp" alt="Our Impact">
             <div class="slide-text">Our Impact</div>
           </div>
           <div class="slide">
-            <img src="logo_pAIthon.png" alt="How You Can Help">
-            <div class="slide-text">How You Can Help</div>
+            <img src="images/DSC00093.jpg" alt="Contact Us">
+            <div class="slide-text">
+              <button class="contact-button" onclick="openModal()">Contact Us!</button>
+            </div>
           </div>
           <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
           <a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -121,6 +178,22 @@
         <iframe src="https://embed.styledcalendar.com/#UBgxGXZ9dWmeSxNsrpKH" title="Styled Calendar" class="styled-calendar-container" data-cy="calendar-embed-iframe"></iframe>
       </div>
     </main>
+    
+    <!-- Modal for Contact Information -->
+    <div id="contactModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 style="margin-bottom: 10px;">Contact Us</h2>
+        <p style="margin-bottom: 5px;">Email: paithonwpcp@gmail.com</p>
+        <p style="margin-bottom: 5px;"> Phone: 773-273-5645</p>
+       
+        <p style="margin-bottom: 5px;">Other :</p>
+        <p>
+          <a href="https://github.com/paithonwpcp" target="_blank">Github</a><br>
+        </p>
+      </div>
+    </div>
+
     <script src="index.js"></script>
     <script async type="module" src="https://embed.styledcalendar.com/assets/parent-window.js"></script>
     <script>
@@ -140,6 +213,15 @@
           slides[i].style.display = "none";  
         }
         slides[slideIndex-1].style.display = "block";  
+      }
+
+      // Modal functionality
+      function openModal() {
+        document.getElementById("contactModal").style.display = "block";
+      }
+
+      function closeModal() {
+        document.getElementById("contactModal").style.display = "none";
       }
     </script>
   </body>
