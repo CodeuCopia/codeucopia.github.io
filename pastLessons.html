@@ -290,6 +290,8 @@
     function filterLessons() {
       const year = document.getElementById('yearDropdown').value;
       const location = document.getElementById('locationDropdown').value;
+      const grade = document.getElementById('gradeDropdown').value;
+      const content = document.getElementById('contentDropdown').value;
       const searchQuery = document.getElementById('search_box').value.toLowerCase();
 
       const filteredLessons = lessons.filter(lesson => {
