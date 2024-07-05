@@ -1,34 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Website</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
-    
+    <title>Competitive Programming</title>
     <style>
+        body { 
+            font-family: 'Barlow',sans-serif; 
+            margin: 0; 
+            padding: 0; 
+        }
+        .header { 
+            text-align: center; 
+            padding: 20px; 
+        }
+        .section { 
+            padding: 20px; 
+            position: relative; 
+        }
+        .beginner { background-color: #d4edda; }
+        .intermediate { background-color: #85e5b0; }
+        .advanced { background-color: #17a24c; }
+        .carousel { 
+            display: flex; 
+            overflow-x: auto; 
+            scroll-behavior: smooth; 
+        }
+        .card { 
+                flex: 0 0 auto; 
+                width: 300px;
+            
+                margin: 10px; 
+                background: #fff; 
+                border: 1px solid #ccc; 
+                border-radius: 8px; 
+        }
+        .card img { 
+                width: 100%; 
+                border-top-left-radius: 8px; 
+                border-top-right-radius: 8px; 
+        }
+        .card-title { 
+            font-size: 1.2em; 
+            margin: 10px; 
+        }
+        .card-description { margin: 10px; }
+        .card a { 
+            text-decoration: none; 
+            color: #000; 
+            display: block; 
+            margin: 10px; 
+            text-align: center; 
+            padding: 10px; 
+            border: 1px solid #ccc; 
+            border-radius: 4px; 
+        }
+        .carousel-nav { 
+            position: absolute; 
+            top: 50%; 
+            transform: translateY(-50%); 
+            background-color: rgba(0,0,0,0.5); 
+            color: white; 
+            border: none; 
+            padding: 10px; 
+            cursor: pointer; 
+        }
+        .prev { left: 0; }
+        .next { right: 0; }
     </style>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-  </head>
-  <body>
+</head>
+<body>
     <!--Navigation bar-->
     <div id="nav-placeholder"></div>
-    
+
     <script>
     $(function(){
       $("#nav-placeholder").load("navBar.html");
     });
     </script>
     <!--end of Navigation bar-->
-    <main>
-      <div id="competitiveProgramming" class="page"> <!-- home page -->
-        <h1 id="welcomeText" class="topText">Competitive Programming</h1>
-        <p id="welcomePara"> Expanding code and tech literacy through python and AI.</p>
-      </div>
-    </main>
-	<script src="index.js"></script>
-  <script async type="module" src="https://embed.styledcalendar.com/assets/parent-window.js"></script>
-  </body>
+    <div class="header">
+        <h1>Competitive Programming</h1>
+        <p style = "margin-top: 7px;"> Lessons and Notes by Jonthan for anyone interested in competitive programming!</p>
+    </div>
+
+    <div class="section beginner">
+        <h2>Beginner</h2>
+        <button class="carousel-nav prev" onclick="scrollCarousel('beginner-carousel', -1)">&#10094;</button>
+        <div class="carousel" id="beginner-carousel">
+            <div class="card">
+                <img src="https://media.discordapp.net/attachments/1007808411532001301/1238897936855728239/IMG_20240504_151412.jpg?ex=667eeb9d&is=667d9a1d&hm=9ddd34de982e8f86765d598f99f0c297d9c6e2498f90e045c93a1b6b379e74b0&=&format=webp&width=841&height=389" alt="Beginner Card 1">
+                <div class="card-title">Beginner Card 1</div>
+                <div class="card-description", href = "notes1.html">Short description...</div>
+                <a href="cp_pages/pageA.html">Read More</a>
+            </div>
+            <div class="card">
+                <img src="image2.jpg" alt="Beginner Card 2">
+                <div class="card-title">Beginner Card 2</div>
+                <div class="card-description">Short description...</div>
+                <a href="notes2.html">Title 1</a>
+            </div>
+            <!-- More cards... -->
+        </div>
+        <button class="carousel-nav next" onclick="scrollCarousel('beginner-carousel', 1)">&#10095;</button>
+    </div>
+
+    <div class="section intermediate">
+        <h2>Intermediate</h2>
+        <button class="carousel-nav prev" onclick="scrollCarousel('intermediate-carousel', -1)">&#10094;</button>
+        <div class="carousel" id="intermediate-carousel">
+            <div class="card">
+                <img src="image3.jpg" alt="Intermediate Card 1">
+                <div class="card-title">Intermediate Card 1</div>
+                <div class="card-description">Short description...</div>
+                <a href="notes3.html">Read More</a>
+            </div>
+            <div class="card">
+                <img src="image4.jpg" alt="Intermediate Card 2">
+                <div class="card-title">Intermediate Card 2</div>
+                <div class="card-description">Short description...</div>
+                <a href="notes4.html">Read More</a>
+            </div>
+            <!-- More cards... -->
+        </div>
+        <button class="carousel-nav next" onclick="scrollCarousel('intermediate-carousel', 1)">&#10095;</button>
+    </div>
+
+    <div class="section advanced">
+        <h2>Advanced</h2>
+        <button class="carousel-nav prev" onclick="scrollCarousel('advanced-carousel', -1)">&#10094;</button>
+        <div class="carousel" id="advanced-carousel">
+            <div class="card">
+                <img src="image5.jpg" alt="Advanced Card 1">
+                <div class="card-title">Advanced Card 1</div>
+                <div class="card-description">Short description...</div>
+                <a href="notes5.html">Read More</a>
+            </div>
+            <div class="card">
+                <img src="image6.jpg" alt="Advanced Card 2">
+                <div class="card-title">Advanced Card 2</div>
+                <div class="card-description">Short description...</div>
+                <a href="notes6.html">Read More</a>
+            </div>
+            <!-- More cards... -->
+        </div>
+        <button class="carousel-nav next" onclick="scrollCarousel('advanced-carousel', 1)">&#10095;</button>
+    </div>
+
+    <script>
+        function scrollCarousel(carouselId, direction) {
+            const carousel = document.getElementById(carouselId);
+            const scrollAmount = direction * (carousel.offsetWidth / 2);
+            carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+    </script>
+</body>
 </html>
