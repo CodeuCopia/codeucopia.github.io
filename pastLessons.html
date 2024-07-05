@@ -128,7 +128,7 @@
         .lesson-list {
           display: grid;
           grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-          gap: 20px;
+          gap: 10px;
         }
 
         .lesson-card {
@@ -136,7 +136,8 @@
           background-color: #fff;
           border: 1px solid #ddd;
           border-radius: 8px;
-          margin-left: 20px;
+          margin-left: 10px;
+          margin-right: 10px;
           padding: 20px;
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
           display: flex;
@@ -162,7 +163,7 @@
         }
 
         .lesson-card .tag {
-          background-color: #06da50;
+          background-color: #009233;
           color: #fff;
           border-radius: 4px;
           padding: 5px 10px;
@@ -284,10 +285,12 @@
 
   <script>
     const lessons = [
-      { title: 'Lesson 1', year: 2024, location: 'Armstrong', grade : 'Middle School', topic: 'Cryptography', content : 'Logic / Fun', slides: 'https://docs.google.com/presentation/d/1GXlArHm44BKBC8FGOUotYgbutaMkB8qZpzX7fFpfiCo/embed?start=false&loop=false&delayms=3000' },
-      { title: 'Lesson 2', year: 2024, location: 'Armstrong', grade: 'Middle School', topic: 'Logic And Algorithms',content : 'Logic / Fun', slides: 'https://docs.google.com/presentation/d/1deATvgoq-Ybr9gqWCzEjQS7H-lMo2pVEaETi6J23CnI/embed?start=false&loop=false&delayms=3000' },
-      
-      // Add more lesson objects as needed
+      { title: 'Cryptography', year: 2024, location: 'Armstrong', grade : 'Middle School', content : 'Logic / Fun', slides: 'https://docs.google.com/presentation/d/1GXlArHm44BKBC8FGOUotYgbutaMkB8qZpzX7fFpfiCo/embed?start=false&loop=false&delayms=3000' },
+      { title: 'Logic And Algorithms', year: 2024, location: 'Armstrong', grade: 'Middle School',content : 'Logic / Fun', slides: 'https://docs.google.com/presentation/d/1deATvgoq-Ybr9gqWCzEjQS7H-lMo2pVEaETi6J23CnI/embed?start=false&loop=false&delayms=3000' },
+      { title : 'App Development', year: 2024, location: 'Armstrong', grade: 'Middle School', content: 'Software', slides: 'https://docs.google.com/presentation/d/15Kmr5Pz9dAvAoYUVrrwvvn1MQrfPH_th7DuNFP76QmE/embed?start=false&loop=false&delayms=3000'}, 
+      { title : 'AI and Machine Learning', year: 2024, location: 'Armstrong', grade: 'Middle School', content: 'Software', slides: 'https://docs.google.com/presentation/d/1j3RgE0Cw01kEhhC0M9zJ82xq7Z8ov1QhMcW3gbXb03w/embed?start=false&loop=false&delayms=3000'},
+      { title : 'Robotics', year: 2024, location: 'Armstrong', grade: 'Middle School', content: 'Hardware', slides: 'https://docs.google.com/presentation/d/1psP5Xarx-D3GDQIgUXDp7XvgZ4eIaDWKi20MgtVPrb0/embed?start=false&loop=false&delayms=3000'},
+      { title : 'Game Design and Development', year: 2024, location: 'Armstrong', grade: 'Middle School', content: 'Software', slides: 'https://docs.google.com/presentation/d/1fxMn9WiWpOzhZtPUtpht848Cw5rgsKRlFsytFOzyxSw/embed?start=false&loop=false&delayms=3000'},
     ];
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -305,8 +308,7 @@
         return (year === '' || lesson.year == year) &&
                (location === '' || lesson.location == location) &&
                (searchQuery === '' || 
-                lesson.title.toLowerCase().includes(searchQuery) || 
-                lesson.topic.toLowerCase().includes(searchQuery)) && (grade === '' || lesson.grade == grade) && (content === '' || lesson.content == content);
+                lesson.title.toLowerCase().includes(searchQuery)) && (grade === '' || lesson.grade == grade) && (content === '' || lesson.content == content);
       });
 
       displayLessons(filteredLessons);
@@ -320,12 +322,13 @@
         lessonList.innerHTML = '<p>No lessons found.</p>';
         return;
       }
+      lessons.sort((a, b) => a.title.localeCompare(b.title));
 
       lessons.forEach(lesson => {
         const lessonItem = document.createElement('div');
         lessonItem.className = 'lesson-card';
 
-        lessonItem.innerHTML = `<h3>${lesson.topic}</h3>
+        lessonItem.innerHTML = `<h3>${lesson.title}</h3>
                                 <iframe src="${lesson.slides}" frameborder="0" width="100%" height="200"></iframe>
                                 <div class="tags">
                                   <span class="tag">${lesson.grade}</span>
