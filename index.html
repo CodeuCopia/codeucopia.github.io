@@ -27,17 +27,18 @@
         width: 100%;
         height: 500px;
         object-fit: cover;
-        opacity: 0.7;
+        opacity: 0.6;
       }
       .slide-text {
         position: absolute;
         text-align: center;
-        top: 150px;
-        left: 50px;
-        right:50px;
+        top: 200px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
         color: black;
         font-weight: bolder;
-        font-size: 24px;
+        font-size: 25px;
         text-align: center;
         background: transparent;
         border-radius: 5px;
@@ -117,21 +118,6 @@
         text-decoration: none;
         cursor: pointer;
       }
-      .contact-button {
-        padding: 10px 20px;
-        font-size: 24px;
-        cursor: pointer;
-        background-color: #00ab0e; /* Blue background */
-        color: white;
-        border: none;
-        border-radius: 25px; /* Rounded button */
-        font-family: 'Barlow', sans-serif;
-        font-weight: bold;
-        transition: background-color 0.3s;
-      }
-      .contact-button:hover {
-        background-color: #007347; /* Darker blue on hover */
-      }
     </style>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   </head>
@@ -152,22 +138,20 @@
         <div class="slideshow-container">
           <div class="slide">
             <img src="images/DSC00081.jpg" alt="Welcome to pAIthon">
-            <div class="slide-text" style ="margin-top:auto;">Welcome to pAIthon!
-              Expanding code and tech literacy through python and AI
+            <div class="slide-text" style ="margin-top:auto;">Welcome to pAIthon!<br>Expanding code and tech literacy through python and AI
             </div>
           </div>
           <div class="slide">
-            <img src="images/IMG_20240411_151040543_HDR.webp" alt="About Us">
-            <div class="slide-text">About Us</div>
+            <img src="images/IMG_20240124_154804_MP.webp" alt="About Us">
+            <div class="slide-text">About Us<br><br>We are pAIthon, a club at Walter Payton College Prep targeting inequality in computer science education for elementary and middle schools across Chicago.</div>
           </div>
           <div class="slide">
-            <img src="images/IMG_20240124_154804_MP.webp" alt="Our Impact">
+            <img src="images/IMG_20240411_151040543_HDR.webp" alt="Our Impact">
             <div class="slide-text">Our Impact</div>
           </div>
           <div class="slide">
             <img src="images/DSC00093.jpg" alt="Contact Us">
             <div class="slide-text">
-              <button class="contact-button" onclick="openModal()">Contact Us!</button>
             </div>
           </div>
           <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
