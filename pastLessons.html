@@ -132,7 +132,7 @@
         }
 
         .lesson-card {
-          height : 350px;
+          height: auto;
           width: 300px;
           background-color: #fff;
           border: 1px solid #ddd;
@@ -145,34 +145,75 @@
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-        }
+      }
 
-        .lesson-card h3 {
+      .lesson-card h3 {
           margin-top: 0;
           margin-bottom: 10px;
-        }
+      }
 
-        .lesson-card .slideshow {
-          width: auto;
-          height: auto;
+      .lesson-card iframe {
+          width: 100%;
+          height: 200px;
           background-color: #eee;
-          margin: 20px ;
-        }
+          margin: 20px 0;
+      }
 
-        .lesson-card .tags {
-          display: flex;
-          flex-wrap: wrap;
-        }
-
-        .lesson-card .tag {
-          background-color: #009233;
-          color: #fff;
-          border-radius: 4px;
-          padding: 5px 10px;
-          margin-right: 5px;
+      .btn-view-full {
+          display: block;
           margin-top: 10px;
-          
+          color: #009233;
+          text-decoration: none;
+          font-size: 14px;
+          text-align: center;
+      }
+
+      .btn-view-full:hover {
+          text-decoration: underline;
+      }
+
+        .featured-lessons {
+          width: 90%;
+          margin: auto;
+          background-color: #f7f9fc;
+          padding: 20px;
+          border-radius: 10px;
         }
+
+        .featured-carousel {
+          display: flex;
+          overflow-x: scroll;
+          gap: 20px;
+        }
+
+        .featured-lesson {
+          flex: 0 0 auto;
+          width: 300px;
+          background-color: #fff;
+          border: 1px solid #ddd;
+          border-radius: 8px;
+          padding: 10px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .featured-lesson iframe {
+          width: 100%;
+          height: 200px;
+        }
+
+        .featured-lesson a {
+          display: block;
+          margin-top: 10px;
+          color: #009233;
+          text-decoration: none;
+        }
+
+        .featured-lesson a:hover {
+          text-decoration: underline;
+        }
+
+        
+        
 
 
     </style>
@@ -194,48 +235,20 @@
           <div style="text-align: center;">
             <h1 style="margin-top: 30px" class="topText">Past Lessons</h1>
             <p style="margin-top: 8px; margin-bottom: 30px"> Below you'll find lessons we've taught in highschools and middleschools </p>
+        <!-- Featured Lessons Section -->
+        <div class="featured-lessons" style="text-align: center;">
+          <h2 style="margin-top: 30px; margin-bottom: 20px;">Featured Lessons</h2>
+          <div class="featured-carousel">
+            <!-- Add featured lesson items here -->
+            <div class="featured-lesson">
+              <h3>Cryptography</h3><br>
+              <iframe src="https://docs.google.com/presentation/d/1GXlArHm44BKBC8FGOUotYgbutaMkB8qZpzX7fFpfiCo/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="200"></iframe>
+              <a href="https://docs.google.com/presentation/d/1GXlArHm44BKBC8FGOUotYgbutaMkB8qZpzX7fFpfiCo" target="_blank">View Full Lesson</a>
+            </div>
+            <!-- Repeat for more featured lessons -->
           </div>
-        
+        </div>
 
-          <div style="margin-top: 20px" class="all_members">
-            <div class="card">
-                <div class="card_inner">
-                    <div class="card_front">
-                        <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
-                        <h3 id="ahana_title">Ahana Gholkar<br><small><small>Co-founder</small></small></h3>
-                    </div>
-                    <div class="card_back">
-                      <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
-                        <p>the most awesome person ever</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card_inner">
-                    <div class="card_front">
-                        <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
-                        <h3 id="linnrue_title">Linnrue Wei<br><small><small>Co-founder</small></small></h3>
-                    </div>
-                    <div class="card_back">
-                      <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
-                        <p>the most awesome person ever</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card_inner">
-                    <div class="card_front">
-                        <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
-                        <h3 id="jonathan_title">Jonathan Alvarado<br><small><small>Co-founder</small></small></h3>
-                    </div>
-                    <div class="card_back">
-                      <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
-                        <p>the most awesome person ever</p>
-                    </div>
-                </div>
-            </div>
-            
-          </div>
           
           <div style="text-align: center;">
             <h1 id = "archive" style="margin-top: 5px; margin-bottom: 20px">Archive</h1>
@@ -316,26 +329,26 @@
       lessonList.innerHTML = '';
 
       if (lessons.length === 0) {
-        lessonList.innerHTML = '<p>No lessons found.</p>';
-        return;
+          lessonList.innerHTML = '<br><p>No lessons found.</p><br>';
+          return;
       }
       lessons.sort((a, b) => a.title.localeCompare(b.title));
 
       lessons.forEach(lesson => {
-        const lessonItem = document.createElement('div');
-        lessonItem.className = 'lesson-card';
+          const lessonItem = document.createElement('div');
+          lessonItem.className = 'lesson-card';
 
-        lessonItem.innerHTML = `<h3>${lesson.title}</h3>
-                                <iframe src="${lesson.slides}" frameborder="0" width="100%" height="200"></iframe>
-                                <div class="tags">
-                                  <span class="tag">${lesson.grade}</span>
-                                  <span class="tag">${lesson.year}</span>
-                                  <span class="tag">${lesson.location}</span>
-                                  <span class="tag">${lesson.content}</span>
-                                </div>`;
-        lessonList.appendChild(lessonItem);
+          lessonItem.innerHTML = `<h3>${lesson.title}</h3>
+                                  <a href="${lesson.slides.replace('/embed', '')}" target="_blank">
+                                      <iframe src="${lesson.slides}" frameborder="0" width="100%" height="200"></iframe>
+                                  </a>
+                                  <a href="${lesson.slides.replace('/embed', '')}" target="_blank" class="btn-view-full">View Full Slides</a>`;
+          lessonList.appendChild(lessonItem);
       });
-    }
+  }
+
+
+    
   </script>
 
   </body>
