@@ -14,6 +14,17 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            flex-direction: column;
+            align-items: center;
+        }
+        .page {
+            justify-content: center;
+            align-items: center;
+            width:100%;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            position:relative;
         }
         #our_members_title {
             text-align: center;
@@ -21,13 +32,21 @@
             line-height: 1.4;
         }
         .all_members {
-            display: flex;
+            display: grid;
             justify-content: center;
-            flex-wrap: wrap;
+            justify-items: center;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
             padding: 20px;
+            align-items: center;
+            margin-top: 20px;
+            margin-left:auto;
+            margin-right:auto;
+            position:relative;
         }
+
         .card {
+            margin-bottom: 20px;
             position: relative;
             width: 300px;
             height: 250px; 
@@ -41,18 +60,23 @@
             width: 100%;
             height: 100%;
             text-align: center;
-            transition: transform 0.6s;
+            transition: transform 0.6s, z-index 0.3s ease;
             transform-style: preserve-3d;
             box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transform-origin: center;
         }
         .card:hover .card_inner {
-            transform: rotateY(180deg);
+            transform: rotateY(180deg) scale(1.2);
+            z-index: 2;
         }
         .card_front, .card_back {
             position: absolute;
             width: 100%;
             height: 100%;
             backface-visibility: hidden;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
         }
         .card_front {
             background-color: #f3fffa;
@@ -62,6 +86,15 @@
             background-color: #f3fffa;
             color: black;
             transform: rotateY(180deg);
+            overflow-y: auto;
+            height:100%;
+            box-sizing:border-box;
+            padding:20px;
+        }
+        .card img {
+            max-width: 200px;
+            border-radius: 100%;
+            margin-bottom: 10px;
         }
     </style>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -82,43 +115,42 @@
               <h1 class="topText" id="our_members_subtitle">Our Members</h1>
           </div>
           <div class="all_members">
-              <div class="card">
-                  <div class="card_inner">
-                      <div class="card_front">
-                          <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
-                          <h3 id="ahana_title">Ahana Gholkar<br><small><small>Co-founder</small></small></h3>
-                      </div>
-                      <div class="card_back">
-                        <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
-                          <p>the most awesome person ever</p>
-                      </div>
+                <div class="card">
+                    <div class="card_inner">
+                        <div class="card_front">
+                            <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
+                            <h3 id="ahana_title">Ahana Gholkar<br><small><small>Co-founder</small></small></h3>
+                        </div>
+                        <div class="card_back">
+                            <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
+                            <p>the most awesome person ever</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card_inner">
+                        <div class="card_front">
+                            <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
+                            <h3 id="linnrue_title">Linnrue Wei<br><small><small>Co-founder</small></small></h3>
+                        </div>
+                        <div class="card_back">
+                            <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
+                            <p>the most awesome person ever</p>
+                        </div>
                   </div>
-              </div>
-              <div class="card">
-                  <div class="card_inner">
-                      <div class="card_front">
-                          <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
-                          <h3 id="linnrue_title">Linnrue Wei<br><small><small>Co-founder</small></small></h3>
-                      </div>
-                      <div class="card_back">
-                        <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
-                          <p>the most awesome person ever</p>
-                      </div>
-                  </div>
-              </div>
-              <div class="card">
-                  <div class="card_inner">
-                      <div class="card_front">
-                          <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
-                          <h3 id="jonathan_title">Jonathan Alvarado<br><small><small>Co-founder</small></small></h3>
-                      </div>
-                      <div class="card_back">
-                        <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
-                          <p>the most awesome person ever</p>
-                      </div>
-                  </div>
-              </div>
-              
+                </div>
+                <div class="card">
+                    <div class="card_inner">
+                        <div class="card_front">
+                            <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
+                            <h3 id="jonathan_title">Jonathan Alvarado<br><small><small>Co-founder</small></small></h3>
+                        </div>
+                        <div class="card_back">
+                            <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/aqualine-seed.png">
+                            <p>the most awesome person ever</p>
+                        </div>
+                    </div>
+                </div>
           </div>
       </div>
   </main>
