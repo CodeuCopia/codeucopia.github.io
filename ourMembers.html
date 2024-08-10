@@ -32,10 +32,10 @@
             line-height: 1.4;
         }
         .all_members {
-            display: grid;
-            justify-content: center;
-            justify-items: center;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            justify-items: end;
             gap: 20px;
             padding: 20px;
             align-items: center;
@@ -151,9 +151,11 @@
                         </div>
                     </div>
                 </div>
+                
           </div>
       </div>
   </main>
+   
   <script src="index.js"></script>
 </body>
 </html>
