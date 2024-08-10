@@ -5,6 +5,15 @@
     font-style: normal;
   }
 body {
-    background: #f3fffa;
+    background: #eff7cf;
     font-family: 'barlow_regular';
   }
+
+  .fade {
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+}
+
+.fade.show {
+    opacity: 1;
+}
