@@ -7,11 +7,29 @@
     <title>pAIthon</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
-    <link href='https://fonts.googleapis.com/css?family=Barlow' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300..900&display=swap" rel="stylesheet">
     <style>
+      /* General Styles */
       body {
-        font-family: 'Barlow', sans-serif;
+        font-family: 'Rubik', sans-serif;
+        background-color: #f9fbfc;
+        color: #2A2A2A;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
       }
+  
+      h2 {
+        font-size: 32px;
+        color: #00050a;
+      }
+  
+      p {
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+  
+      /* Slideshow Styles */
       .slideshow-container {
         width: 100%;
         height: 350px;
@@ -19,61 +37,69 @@
         position: relative;
         overflow: hidden;
       }
+  
       .slide {
         display: none;
         position: relative;
       }
+  
       .slide img {
         width: 100%;
         height: 500px;
         object-fit: cover;
       }
+  
       .prev, .next {
         cursor: pointer;
         position: absolute;
         top: 50%;
-        width: auto;
         padding: 16px;
         margin-top: -22px;
         color: white;
         font-weight: bold;
         font-size: 18px;
-        transition: 0.6s ease;
         border-radius: 0 3px 3px 0;
         user-select: none;
         background-color: rgba(0, 0, 0, 0.25);
+        transition: background-color 0.6s ease;
       }
+  
       .next {
         right: 0;
         border-radius: 3px 0 0 3px;
       }
+  
       .prev {
         left: 0;
         border-radius: 3px 0 0 3px;
       }
+  
       .prev:hover, .next:hover {
         background-color: rgba(0, 0, 0, 0.8);
       }
+  
+      /* Content Section Styles */
       .content-section {
         padding: 50px 10%;
         text-align: center;
       }
+  
       .about-us-container {
-        background-color: #dcfde2; 
-        padding: 40px 20px;
-        border-radius: 10px; 
-        margin: 20px 0; 
+        border-radius: 10px;
+        background-color: inherit;
+        margin: 0;
+        padding: 0;
       }
-
+  
       .content-section.about-us .text h2 {
         font-size: 28px;
       }
-
+  
       .content-section.about-us .text p {
         margin-top: 10px;
         font-size: 20px;
       }
-
+  
       .content-section.about-us .stats {
         display: flex;
         justify-content: space-around;
@@ -84,168 +110,183 @@
         font-size: 24px;
         margin-bottom: 5px;
       }
-
+  
       .content-section.about-us .stat p {
         font-size: 25px;
       }
-
+  
       .upcoming-events,
       .testimonials {
         margin-top: 50px;
       }
+  
       .event,
       .testimonial {
         margin: 20px 0;
       }
+  
       .upcoming-events .event {
         display: flex;
         justify-content: space-between;
         align-items: center;
       }
+  
       .upcoming-events .event .details {
         width: 75%;
       }
+  
       .upcoming-events .event .link {
         width: 20%;
         text-align: right;
       }
+  
       .content-section.mission-statement {
-        margin-top: 10px; 
-        padding: 20px; 
-        text-align: center; 
+        margin-top: 10px;
+        padding: 20px;
+        text-align: center;
       }
-
+  
       .content-section.mission-statement h2 {
-        margin-top: 0; 
-        font-size: 30px; 
+        margin-top: 0;
+        font-size: 30px;
       }
-
+  
       .content-section.mission-statement p {
-        margin-top: 5px; 
-        font-size: 25px; 
+        margin-top: 5px;
+        font-size: 25px;
       }
-
+  
+      /* Event List and Memo Styles */
       .event-list {
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
       }
-
+  
       .memo-small {
-          width: 250px;
-          height: 100px;
-          padding: 10px;
-          background-color: #a8d5ba;
-          border: 2px solid #000000;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-          cursor: pointer;
+        width: 250px;
+        height: 100px;
+        padding: 10px;
+        background-color: #B7DDDA;
+        border: 2px solid #000;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
       }
-
+  
       .event-name {
-          margin-top : 20px;
-          font-size: 18px;
-          font-weight: bold;
-          margin-bottom: 5px;
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 5px;
       }
-
+  
       .event-details {
-          display: flex;
-          justify-content: space-between;
-          border-top: 1px solid #000000;
-          padding-top: 5px;
-          margin-top: 5px;
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid #000;
+        padding-top: 5px;
+        margin-top: 5px;
       }
-
+  
       .date, .time {
-          font-size: 14px;
+        font-size: 14px;
       }
-
+  
       .memo-large {
-          display: none;
-          position: fixed;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: 350px;
-          height: 300px;
-          background-color: #ffffff;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-          z-index: 1000;
-          overflow: hidden;
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 350px;
+        height: 300px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        overflow: hidden;
       }
-
+  
       .memo-content {
-          position: relative;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          padding: 10px;
+        position: relative;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
       }
-
+  
       .close-button {
-          position: absolute;
-          top: 10px;
-          right: 10px;
-          background: none;
-          border: none;
-          font-size: 20px;
-          cursor: pointer;
-          color: #000000;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        color: #000;
       }
-
-      .event-info {
-        margin: 5px 0;
-        color: #000000;
-      }
-
+  
       .event-info h2, .event-info p {
-          margin: 5px 0;
-          color: #000000;
+        margin: 0px 0;
+        padding:0px;
+        color: #000;
       }
-
+  
       .event-description {
-          margin-top: 20px;
-          padding: 10px;
-          background-color: #d0e8d3;
-          border-radius: 4px;
-          height: 100%;
-          overflow-y: auto;
+        padding: 10px;
+        background-color: #B7DDDA;
+        border-radius: 4px;
+        height: 100%;
+        overflow-y: auto;
       }
-
+  
       .event-description::-webkit-scrollbar {
-          width: 8px;
+        width: 8px;
       }
-
+  
       .event-description::-webkit-scrollbar-thumb {
-          background: #8aeb94;
-          border-radius: 4px;
+        background: #407377;
+        border-radius: 4px;
       }
-
+  
       .row {
         display: flex;
       }
-
+  
       .column {
-      flex: 50%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
+        flex: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+  
+      .column h2 {
+        text-align: center;
+      }
 
-    .column h2 {
-      text-align: center;
-    }
+      .all-events-link {
+        display: inline-block;
+        background-color: #75B9BF; /* Blue background color */
+        color: white; /* White text color */
+        font-size: 16px; /* Larger font size */
+        font-weight: bold; /* Bolder text */
+        padding: 10px 20px; /* Padding for better appearance */
+        border-radius: 5px; /* Rounded corners */
+        text-decoration: none; /* Remove underline */
+        transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+      }
 
-    .event-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      align-items: center; 
-    }
+      .all-events-link:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+        transform: scale(1.05); /* Slightly enlarge on hover */
+      }
 
-</style>
-
+      .all-events-link::before {
+        content: '📅'; /* Add an icon before the text */
+        margin-right: 8px; /* Space between icon and text */
+      }
+    </style>
     </style>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   </head>
@@ -282,39 +323,44 @@
         <!-- Mission Statement -->
         <div class="content-section mission-statement">
           <h2>Welcome to pAIthon!</h2>
-          <p>Expanding code and tech literacy through python and AI</p>
+          <p>Empowering students with tech skills to spark curiosity and inspire future innovators.</p>
         </div>
 
         <!-- About Us and Statistics -->
-         <div class = "about-us-container">
-          
-          <div class="content-section about-us">
-            <div class="text">
-              <h2>About Us</h2>
-              <p>pAIthon is a club at Walter Payton College Prep dedicated to bringing accessible and interactive computer science lessons to young minds. In many schools around Chicago, computer science classes are not priortized, and students lack a platform to explore this multi-faceted. Having been there ourselves, we wanted to create a space where students could engage with coding and technology in a fun and supportive environment. <br><br>
-                
-                Our mission is to empower all students with the tools and knowledge to thrive in the tech world, sparking curiosity and inspiring the next generation of innovators. </p>
-            </div>
-            <div class="stats">
-              <div class="stat">
-                <h3>50+</h3>
-                <p>Students Reached</p>
-              </div>
-              <div class="stat">
-                <h3>2</h3>
-                <p>Schools Partnered</p>
-              </div>
-              <div class="stat">
-                <h3>20+</h3>
-                <p>Hours of Instruction</p>
-              </div>
-            </div>
+    <div class="about-us-container">
+      <div class="content-section about-us">
+        <div class="about-us-content">
+          <div class="about-us-text">
+            <h2>About Us</h2>
+            <p>pAIthon is a club at Walter Payton College Prep dedicated to bringing accessible and interactive computer science lessons to young minds. In many schools around Chicago, computer science classes are not prioritized, and students lack a platform to explore this multi-faceted subject. Having been there ourselves, we wanted to create a space where students could engage with coding and technology in a fun and supportive environment. <br><br>
+            </p>
           </div>
-         </div>
+        </div>
+        <div class="stats">
+          <div class="stat">
+            <h3>50+</h3>
+            <p>Students Reached</p>
+            <img src="images/group_24dp_407377_FILL0_wght400_GRAD0_opsz24.png" alt="Students Icon" class="stat-icon">
+          </div>
+          <div class="stat">
+            <h3>2</h3>
+            <p>Schools Reached</p>
+            <img src="images/school_24dp_407377_FILL0_wght400_GRAD0_opsz24.png" alt="School Icon" class="stat-icon">
+
+          </div>
+          <div class="stat">
+            <h3>20+</h3>
+            <p>Hours of Instruction</p>
+            <img src="images/schedule_24dp_407377_FILL0_wght400_GRAD0_opsz24.png" alt="Instruction Icon" class="stat-icon">
+          </div>
+        </div>
+      </div>
+    </div>
+
         <!-- Upcoming Events -->
-         <div class ="row">
+        <div class ="row">
           <div class = "column">
-            <h2>Upcoming Events</h2><br>
+            <h2>Upcoming Events</h2>
             <div class="event-list">
               <div class="memo-small" onclick="openMemo('event1')">
                   <div class="event-name">Event Name 1</div>
@@ -323,7 +369,15 @@
                       <div class="time">Time: 10:00 AM</div>
                   </div>
               </div>
+              <div class="memo-small" onclick="openMemo('event2')">
+                <div class="event-name">Event Name 1</div>
+                <div class="event-details">
+                    <div class="date">Date: 2024-08-10</div>
+                    <div class="time">Time: 10:00 AM</div>
+                </div>
+            </div>
           </div>
+          <br><a href="https://embed.styledcalendar.com/#UBgxGXZ9dWmeSxNsrpKH" target="_blank" class="all-events-link">All Events</a>
       
           <div class="memo-large" id="event1">
               <div class="memo-content">
@@ -338,13 +392,29 @@
                         Our mission is to empower all students with the tools and knowledge to thrive in the tech world, sparking curiosity and inspiring the next generation of innovators.</p>
                   </div>
               </div>
+              
           </div>
+          <div class="memo-large" id="event2">
+            <div class="memo-content">
+                <button class="close-button" onclick="closeMemo()">X</button>
+                <div class="event-info">
+                    <h2>Event Name 2</h2><br>
+                    <p>Date: 2024-08-10</p>
+                    <p>Time: 10:00 AM</p>
+                </div>
+                <div class="event-description">
+                    <p>More details about the event go here...pAIthon is a club at Walter Payton College Prep dedicated to bringing accessible and interactive computer science lessons to young minds. In many schools around Chicago, computer science classes are not priortized, and students lack a platform to explore this multi-faceted. Having been there ourselves, we wanted to create a space where students could engage with coding and technology in a fun and supportive environment.
+                      Our mission is to empower all students with the tools and knowledge to thrive in the tech world, sparking curiosity and inspiring the next generation of innovators.</p>
+                </div>
+            </div>
+            
+        </div>
           </div>
           <div class = "column">
             <div class="content-section testimonials">
               <h2>Hear What Participants Have to Say</h2>
               <div class="testimonial">
-                <p>"I like the fact that we learn interesting things like, ... programming and making software, and I really like that because it's helping me prepare for the future, and that's what I want to do in the future -2024 participant</p>
+                <p>"I like the fact that we learn interesting things like, ... programming and making software, and I really like that because it's helping me prepare for the future, and that's what I want to do in the future" - Armstrong 2024 participant</p>
               </div>
             </div>
           </div>
@@ -394,14 +464,24 @@
       }
 
       function openMemo(eventId) {
-        document.getElementById(eventId).style.display = 'block';
-      }
+        // Hide all modals first
+        const allModals = document.querySelectorAll('.memo-large');
+        allModals.forEach(modal => modal.style.display = 'none');
+        
+        // Show the selected modal
+        const modal = document.getElementById(eventId);
+        if (modal) {
+            modal.style.display = 'block';
+        }
+    }
 
-      function closeMemo() {
-          document.querySelector('.memo-large').style.display = 'none';
-      }
-
+    function closeMemo() {
+        // Hide all modals
+        const allModals = document.querySelectorAll('.memo-large');
+        allModals.forEach(modal => modal.style.display = 'none');
+    }
     </script>
   </body>
 </html>
+
 
