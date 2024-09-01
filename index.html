@@ -154,6 +154,7 @@
       .content-section.mission-statement p {
         margin-top: 5px;
         font-size: 25px;
+        
       }
   
       /* Event List and Memo Styles */
@@ -226,10 +227,18 @@
         color: #000;
       }
   
-      .event-info h2, .event-info p {
+      .event-info h2,{
         margin: 0px 0;
         padding:0px;
         color: #000;
+        font-size: 15px;
+      }
+
+     .event-info p {
+        margin: 0px 0;
+        padding:0px;
+        color: #000;
+        
       }
   
       .event-description {
@@ -237,6 +246,7 @@
         background-color: #B7DDDA;
         border-radius: 4px;
         height: 100%;
+        line-height: 1.25;
         overflow-y: auto;
       }
   
@@ -283,8 +293,8 @@
       }
 
       .all-events-link::before {
-        content: '📅'; /* Add an icon before the text */
-        margin-right: 8px; /* Space between icon and text */
+        content: '📅'; 
+        margin-right: 8px;
       }
     </style>
     </style>
@@ -370,7 +380,7 @@
                   </div>
               </div>
               <div class="memo-small" onclick="openMemo('event2')">
-                <div class="event-name">Event Name 1</div>
+                <div class="event-name">Event Name 2</div>
                 <div class="event-details">
                     <div class="date">Date: 2024-08-10</div>
                     <div class="time">Time: 10:00 AM</div>
@@ -383,7 +393,7 @@
               <div class="memo-content">
                   <button class="close-button" onclick="closeMemo()">X</button>
                   <div class="event-info">
-                      <h2>Event Name 1</h2><br>
+                      <h2>Event Name 1</h2>
                       <p>Date: 2024-08-10</p>
                       <p>Time: 10:00 AM</p>
                   </div>
@@ -398,7 +408,7 @@
             <div class="memo-content">
                 <button class="close-button" onclick="closeMemo()">X</button>
                 <div class="event-info">
-                    <h2>Event Name 2</h2><br>
+                    <h2>Event Name 2</h2>
                     <p>Date: 2024-08-10</p>
                     <p>Time: 10:00 AM</p>
                 </div>
