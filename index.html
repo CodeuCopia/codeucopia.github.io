@@ -299,6 +299,32 @@
         content: '📅'; 
         margin-right: 8px;
       }
+
+      @media (max-width: 768px) {
+            .row {
+                flex-direction: column;
+            }
+
+            .memo-large {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .memo-small {
+                font-size: 14px;
+            }
+
+            .memo-content {
+                padding: 10px;
+                max-width: 100%;
+                max-height: 100%;
+            }
+
+            .close-button {
+                padding: 3px 7px;
+            }
+        }
     </style>
     </style>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -421,20 +447,21 @@
                 </div>
             </div>
             
-        </div>
           </div>
-          <div class = "column">
-            <div class="content-section testimonials">
-              <h2>Hear What Participants Have to Say</h2>
-              <div class="testimonial">
-                <p>"I like the fact that we learn interesting things like, ... programming and making software, and I really like that because it's helping me prepare for the future, and that's what I want to do in the future" - Armstrong 2024 participant</p>
+            </div>
+            <div class = "column">
+              <!-- Testimonials -->
+              <div class="content-section testimonials">
+                <h2>Hear What Participants Have to Say</h2>
+                <div class="testimonial">
+                  <p>"I like the fact that we learn interesting things like, ... programming and making software ... because it's helping me prepare for ... what I want to do in the future" - Armstrong 2024 participant</p>
+                </div>
               </div>
             </div>
-          </div>
-         </div>
+        </div>
         
   
-        <!-- Testimonials -->
+        
       
       </div>
     </main>
