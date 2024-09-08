@@ -300,6 +300,70 @@
         margin-right: 8px;
       }
 
+      /* Popup window styles */
+      .popup-window {
+        display: none; /* Initially hidden */
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+      }
+
+      .popup-content {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 600px;
+        max-height: 70vh; /* Sets max height relative to the viewport height */
+        margin: 50px auto;
+        text-align: center;
+        position: relative;
+        overflow-y: auto; /* Enables vertical scroll if content overflows */
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 40px;
+        cursor: pointer;
+      }
+
+      .signup-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #75B9BF;
+        color: white;
+        border-radius: 5px;
+        text-decoration: none;
+        margin-top: 15px;
+      }
+
+      .signup-btn:hover {
+        background-color: #a3dbd7;
+      }
+
+      /* Flyer image styles */
+      .flyer-image {
+        max-width: 100%;
+        height: auto;
+        margin-top: 15px;
+        border-radius: 8px;
+      }
+
+      .popup-content::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      .popup-content::-webkit-scrollbar-thumb {
+        background-color: #a8a8a8; /* Green scrollbar */
+        border-radius: 10px;
+      }
+
+
       @media (max-width: 768px) {
             .row {
                 flex-direction: column;
@@ -358,6 +422,20 @@
           </div>
         </div>
         </div>
+
+        <div id="popup" class="popup-window">
+          <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <h2>Welcome to pAIthon!</h2>
+            <p>Join us to explore the exciting world of coding, AI, and robotics. Sign up now for our upcoming workshops!</p>
+        
+            <!-- Flyer image section -->
+            <img src="images/flyer.png" alt="pAIthon Class Flyer" class="flyer-image">
+        
+            <a href="https://forms.gle/ikSruPsRpU3rnEun9" class="signup-btn"><b>Sign Up</b></a>
+          </div>
+        </div>
+        
 
         <!-- Mission Statement -->
         <div class="content-section mission-statement">
@@ -469,6 +547,15 @@
 
     <script src="index.js"></script>
     <script>
+    // Display popup when the page loads
+      window.onload = function() {
+        document.getElementById('popup').style.display = 'block';
+      };
+
+      // Function to close the popup
+      function closePopup() {
+        document.getElementById('popup').style.display = 'none';
+      }
 
       // Modal functionality
       function openModal() {
